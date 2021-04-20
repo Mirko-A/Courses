@@ -41,7 +41,7 @@ D2y=diff(y,2);
 resenje=dsolve(D2y+0.3333*Dy+0.2*y==0*dirac(1,t)+0*dirac(t)+0.0667*heaviside(t),...
     y(-0.0000001)==y0_,Dy(-0.0000001)==y0_izvod);
 fplot(resenje,[-1,40]);
-axis([-1 40 0 1])
+axis([-1 40 -5 10])
 title('Ukupni odziv sistema')
 
 %
@@ -102,18 +102,18 @@ initial(sistem,[x1_0_,x2_0_])
 % naredba gensig: generise signal; 
 % na raspolaganju su 'sin' - Sine wave, 'square' - Square wave, 'pulse' - Periodic pulse.
 %
-[pravougaona_povorka,tt] = gensig('square',5,10,0.05); 
+[pravougaona_povorka,tt] = gensig('square',5, 40,0.05); 
 %
 subplot(4,2,6)
 plot(tt,pravougaona_povorka)
 title('Povorka pravougaonih impulsa')
-axis([0 10 -1 40])
+axis([-1 40 -1 5])
 %
 % naredba lsim: simulacija ponasanja linearnog sistema; mogu se ukljuciti i
 % nenulti pocetni uslovi itd. (pogledati za svaku naredbu help i primere)
 subplot(4,2,8)
 lsim(sistem,pravougaona_povorka,tt)
-title('Odziv na povorku delta impulsa')
+title('Odziv na povorku pravougaonih impulsa')
 %
 % odziv na proizvoljnu pobudu, koriscenjem konvolucije i grinove f-je:
 % odziv na novu pobudu je y_novo(t)=grin(t)*w_novo(t), 
