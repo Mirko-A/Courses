@@ -65,7 +65,7 @@ subplot(4,2,2)
 fplot(ind,[-1,40]);
 axis([-1 40 0 0.5])
 title('Indiciona f-ja')
-assume(t>0);
+assume(t,'clear')
 %
 % naredba impulse: impulsni odziv sistema (ili Grinova f-ja sistema), 
 % tj. odziv kada je pobuda w(t)=dirac(t) i pocetni uslovi x(0_)=0:
