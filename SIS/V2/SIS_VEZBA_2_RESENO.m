@@ -40,8 +40,8 @@ Dy=diff(y);
 D2y=diff(y,2);
 resenje=dsolve(D2y+0.3333*Dy+0.2*y==0*dirac(1,t)+0*dirac(t)+0.0667*heaviside(t),...
     y(-0.0000001)==y0_,Dy(-0.0000001)==y0_izvod);
-fplot(resenje,[-1,3]);
-axis([-1 3 -1 3])
+fplot(resenje,[-1,40]);
+axis([-1 40 0 1])
 title('Ukupni odziv sistema')
 
 %
@@ -50,27 +50,28 @@ title('Ukupni odziv sistema')
 %
 f2=figure(2);
 subplot(4,2,1)
-step(sistem,3) % 3 je T_max dokle ce nacrtati grafik
+step(sistem,40) % 3 je T_max dokle ce nacrtati grafik
 %
 % ovo gore je vektor odbiraka indicione f-je, a ako hocemo da je izracunamo
 % analiticki oblik indicione f-je preko simbolickog racuna u Matlab-u:
 %
 syms ind(t)
+assume(t>0);
 Dind=diff(ind);
 D2ind=diff(ind,2);
 ind=dsolve(D2ind+0.3333*Dind+0.2*ind==0*dirac(1,t)+0*dirac(t)+0.0667*heaviside(t),...
     ind(-0.0000001)==0, Dind(-0.0000001)==0);
 subplot(4,2,2)
-fplot(ind,[-1,3]);
-axis([-1 3 -1 3])
+fplot(ind,[-1,40]);
+axis([-1 40 0 0.5])
 title('Indiciona f-ja')
-
+assume(t>0);
 %
 % naredba impulse: impulsni odziv sistema (ili Grinova f-ja sistema), 
 % tj. odziv kada je pobuda w(t)=dirac(t) i pocetni uslovi x(0_)=0:
 %
 subplot(4,2,3)
-impulse(sistem,3)
+impulse(sistem,40)
 %
 % ovo gore je vektor odbiraka Grinove f-je, a ako hocemo da je izracunamo
 % simbolicki (tacku 0_=limes(t) kada t->0 sa leve strane aproksimiramo sa -0.0000001):
@@ -78,13 +79,12 @@ impulse(sistem,3)
 syms g(t)
 Dg=diff(g);
 D2g=diff(g,2);
-grin=dsolve(D2g+0.3333*Dg+0.2*g==0*dirac(2,t)+0*dirac(1,t)+0.0667*dirac(t),...
+grin=dsolve(D2g+1/3*Dg+0.2*g==1/15*dirac(t),...
     g(-0.0000001)==0, Dg(-0.0000001)==0)
 subplot(4,2,4)
-fplot(grin,[-1,3]);
-axis([-1 3 -10 10])
+fplot(grin,[-1,40]);
+axis([-1 40 -0.05 0.1])
 title('Grinova f-ja (ne moze da nacrta njen singularni deo)')
-
 %
 % da li je izvod indicione f-je = grinovoj f-ji?
 %
