@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1618990093 source:d:\projects\codeblocks projects\vezbe7\trezor\main.cpp
+	<iostream>
+	"Trezor.hpp"
+	"Dijamant.hpp"
+
+1618989484 d:\projects\codeblocks projects\vezbe7\trezor\dijamant.hpp
+	<iostream>
+
+1618990137 d:\projects\codeblocks projects\vezbe7\trezor\trezor.hpp
+
