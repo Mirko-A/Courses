@@ -18,7 +18,7 @@ resenje=simplify(dsolve(D2y+5*Dy+6*y==3*dirac(t)-2*w,...
 subplot(2,1,1)
 
 fplot(resenje,[-1,10]);
-axis([-1 10 -0.2 1])
+axis([-1 10 -1 7])
 xlabel('t (sec)')
 ylabel('y(t)')
 grid on
@@ -39,7 +39,7 @@ resenje_laplas=simplify(solve((s^2+5*s+6)*Y_s-s-6==3-2/(s+3),Y_s))
 resenje_nakon_povratka_u_t_domen=ilaplace(resenje_laplas)
 subplot(2,1,2)
 fplot(resenje_nakon_povratka_u_t_domen,[-1,10]);
-axis([-1 10 -0.2 1])
+axis([-1 10 -1 3])
 xlabel('t (sec)')
 ylabel('y(t)')
 grid on
