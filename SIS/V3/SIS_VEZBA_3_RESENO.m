@@ -14,7 +14,7 @@ Dy=diff(y);
 D2y=diff(diff(y));
 w(t)=exp(-3*t)*heaviside(t);
 resenje=simplify(dsolve(D2y+5*Dy+6*y==3*dirac(t)-2*w,...
-    y(-0.0000001)==1, Dy(-0.0000001)==-2))
+    y(-0.0000001)==1, Dy(-0.0000001)==1))
 subplot(2,1,1)
 
 fplot(resenje,[-1,10]);
