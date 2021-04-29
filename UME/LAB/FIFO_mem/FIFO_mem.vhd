@@ -51,7 +51,8 @@ signal reg_banka_s: reg_banka_t := (others => (others => '0'));
 signal w_address: STD_LOGIC_VECTOR(3 downto 0) := conv_std_logic_vector(0, 4);
 signal r_address: STD_LOGIC_VECTOR(3 downto 0) := conv_std_logic_vector(0, 4);
 signal mem_count: STD_LOGIC_VECTOR(3 downto 0) := conv_std_logic_vector(0, 4);
-signal full_s, empty_s: STD_LOGIC;
+signal full_s: STD_LOGIC := '0';
+signal empty_s: STD_LOGIC := '0';
 
 begin
                 
