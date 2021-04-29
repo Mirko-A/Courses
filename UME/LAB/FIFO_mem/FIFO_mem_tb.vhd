@@ -117,10 +117,10 @@ begin
         read_en_s <= '1';
         wait until clk_s = '1';
         wait until clk_s = '1';
-        
+        reset_s <= '1';
         wait until clk_s = '1';
         wait until clk_s = '1';
-        
+        reset_s <= '0';
         wait until clk_s = '1';
         wait until clk_s = '1';
         read_en_s <= '0';       
