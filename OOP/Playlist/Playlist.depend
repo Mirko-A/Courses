@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1620193065 source:d:\projects\codeblocks projects\kolokvijum\playlist\dinstring.cpp
+	"dinstring.hpp"
+
+1620193072 d:\projects\codeblocks projects\kolokvijum\playlist\dinstring.hpp
+	<iostream>
+
+1620591498 source:d:\projects\codeblocks projects\kolokvijum\playlist\main.cpp
+	<iostream>
+	"video.hpp"
+	"videolist.hpp"
+	"youtubeplaylist.h"
+
+1620586640 d:\projects\codeblocks projects\kolokvijum\playlist\video.hpp
+	"dinstring.hpp"
+
+1620588120 d:\projects\codeblocks projects\kolokvijum\playlist\videolist.hpp
+	"video.hpp"
+	"list.hpp"
+
+1620193069 d:\projects\codeblocks projects\kolokvijum\playlist\list.hpp
+	<stdlib.h>
+	<iostream>
+
+1620591594 d:\projects\codeblocks projects\kolokvijum\playlist\youtubeplaylist.h
+	"videolist.hpp"
+
