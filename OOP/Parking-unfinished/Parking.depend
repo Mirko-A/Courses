@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1620193065 source:d:\projects\codeblocks projects\kolokvijum\parking\dinstring.cpp
+	"dinstring.hpp"
+
+1620193072 d:\projects\codeblocks projects\kolokvijum\parking\dinstring.hpp
+	<iostream>
+
+1620733225 source:d:\projects\codeblocks projects\kolokvijum\parking\main.cpp
+	<iostream>
+	"vozilo.hpp"
+	"autobus.hpp"
+
+1620732800 d:\projects\codeblocks projects\kolokvijum\parking\vozilo.hpp
+	"dinstring.hpp"
+
+1620733343 d:\projects\codeblocks projects\kolokvijum\parking\autobus.hpp
+	"vozilo.hpp"
+
