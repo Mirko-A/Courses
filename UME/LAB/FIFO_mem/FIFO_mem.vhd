@@ -56,17 +56,8 @@ signal empty_s: STD_LOGIC := '0';
 
 begin
                 
-    process1: process(clk) is
-    begin 
-       
-         if (conv_integer(mem_count) = 15) then
-             full_s <= '1';
-         elsif (conv_integer(mem_count) = 0) then
-             empty_s <= '1';
-         else 
-             full_s <= '0';
-             empty_s <= '0';
-         end if;       
+    clk_process: process(clk) is
+    begin      
        
         if(clk'event and clk = '1') then
             if (reset = '1') then
@@ -75,13 +66,14 @@ begin
                 w_address <= conv_std_logic_vector(0, 4);
                 r_address <= conv_std_logic_vector(0, 4);
             else
-                if (write_en = '1' and read_en = '0') then -- upis
+                if (write_en = '1') then -- upis
                     if (full_s = '0') then
                         reg_banka_s(conv_integer(w_address)) <= data_in;
                         w_address <= w_address + 1;
                         mem_count <= mem_count + 1; -- broj popunjenih mesta u memoriji ++
-                    end if;    
-                elsif (write_en = '0' and read_en = '1') then -- citanje
+                    end if;  
+                end if;  
+                if (read_en = '1') then -- citanje
                     if (empty_s = '0') then
                         data_out <= reg_banka_s(conv_integer(r_address));
                         reg_banka_s(conv_integer(r_address)) <= conv_std_logic_vector(0, 16);
@@ -93,6 +85,20 @@ begin
        end if;
     end process;
     
+    mem_count_process: process(mem_count) is 
+    begin 
+    
+        if(conv_integer(mem_count) = 15) then
+            full_s <= '1';
+        elsif(conv_integer(mem_count) = 0) then
+            empty_s <= '1';
+        else
+            full_s <= '0';        
+            empty_s <= '0';
+        end if;   
+
+    end process;
+        
     full_o <= full_s;
     empty_o <= empty_s;
     
