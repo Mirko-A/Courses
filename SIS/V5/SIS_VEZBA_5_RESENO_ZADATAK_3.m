@@ -12,7 +12,7 @@ u = cos(2*3.14*2*t)+0.5*cos(2*3.14*8*t)+0.5*cos(2*3.14*200*t)
 Du = diff(u);
 Dy=diff(y);
 D2y=diff(y,2);
-resenje1=simplify(dsolve(D2y+3.93045*Dy+2499.0*y==3.93045*Du,y(0)==0, Dy(0)==0))
+resenje1=simplify(dsolve(D2y+3.93045*Dy+2499*y==3.93045*Du,y(0)==0, Dy(0)==0))
 
 % Nalazenje odziva koriscenjem Furijeove transformacije
 syms w G_w % ovo je oznaka za G(w), sliku od g(t)
@@ -20,7 +20,7 @@ slika_prvog_izvoda_g=simplify(j*w*G_w)
 slika_drugog_izvoda_g=simplify((j*w)^2*G_w)
 slika_pobude=fourier(dirac(t))
 slika_prvog_izvoda_pobude=simplify(j*w*slika_pobude)
-leva_strana_RUI=collect(slika_drugog_izvoda_g+3.93045*slika_prvog_izvoda_g+2499.0*G_w,'G_w')
+leva_strana_RUI=collect(slika_drugog_izvoda_g+3.93045*slika_prvog_izvoda_g+2499*G_w,'G_w')
 desna_strana_RUI=3.93045*slika_prvog_izvoda_pobude
 
 % Odredjivanje prenosne karakteristike
