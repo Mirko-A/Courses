@@ -15,7 +15,7 @@ slika_y_homogeno=fourier(y_homogeno)
 leva_strana_RUI=collect(slika_drugog_izvoda_y-2*slika_prvog_izvoda_y+Y_w,'Y_w')
 desna_strana_RUI=slika_pobude
 % Odredjivanje prenosne karakteristike
-prenosna_karakteristika = solve(leva_strana_RUI==desna_strana_RUI,Y_w)
+Y_p = solve(leva_strana_RUI==desna_strana_RUI,Y_w)
 %
-Y = prenosna_karakteristika + slika_y_homogeno;
-y_konacno = ifourier(Y)
+Y_konacno = Y_p + slika_y_homogeno;
+y_konacno = ifourier(Y_konacno)
