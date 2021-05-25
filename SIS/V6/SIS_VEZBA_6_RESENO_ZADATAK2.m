@@ -1,3 +1,6 @@
+clc;
+clear all;
+close all;
 %
 % RESENJE ZADATKA 2
 %
