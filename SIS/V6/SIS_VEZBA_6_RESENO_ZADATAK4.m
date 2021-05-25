@@ -1,5 +1,5 @@
 %
-% RESENJE ZADATKA 3
+% RESENJE ZADATKA 4
 %
 % Specifikacija filtra
 n = 6;
